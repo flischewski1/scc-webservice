@@ -11,7 +11,9 @@ Documentation and presentation
 
 ## we want to bulid a task manager with Python and Flask
 
-first step: minimum viable product 
+first step: minimum viable product (create and delete task, update, status)
+            
+
 
 
 ## sources
