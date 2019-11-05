@@ -9,6 +9,11 @@ Test and evaluation of the resulting solutions
 
 Documentation and presentation
 
+##we want to bulid a task manager with Python and Flask
+
+first step: minimum viable product 
+
+
 ## sources
 
 [Building a REST API using Python and Flask | Flask-RESTful](https://www.youtube.com/watch?v=s_ht4AKnWZg)
