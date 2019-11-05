@@ -15,3 +15,4 @@ Documentation and presentation
 
 [Designing a RESTful API with Python and Flask | miguelgrinberg](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask)
 
+[The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
