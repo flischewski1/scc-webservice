@@ -9,7 +9,7 @@ Test and evaluation of the resulting solutions
 
 Documentation and presentation
 
-##we want to bulid a task manager with Python and Flask
+## we want to bulid a task manager with Python and Flask
 
 first step: minimum viable product 
 
