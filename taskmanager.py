@@ -23,7 +23,7 @@ def get_tasks():
     return jsonify({"tasks to do": tasks})
 
 
-@app.route('/api/tasks/<int:task:id>', methods=["GET"])
+@app.route('/api/tasks/', methods=["GET"])
 def get_task(task_id):
     task = [task for task in tasks if task["id"] == task_id]
     if len(task) == 0:
@@ -50,7 +50,7 @@ def create_task():
     return jsonify({"task": task})
 
 
-@app.route('/api/tasks/<int:task_id>', methods=['PUT'])
+@app.route('/api/tasks/', methods=['PUT'])
 def set_status(task_id):
     pass  # set status for each task
 
@@ -72,7 +72,7 @@ def update_task(task_id):
     return jsonify({"task": task[0]})
 
 
-@app.route('/api/tasks/<int:task_id>', methods=['DELETE'])
+@app.route('/api/tasks/', methods=['DELETE'])
 def delete_task(task_id):
     task = [task for task in tasks if task["id"] == task_id]
     if len(task) == 0:
