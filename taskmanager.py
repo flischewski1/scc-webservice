@@ -33,7 +33,7 @@ def get_task(task_id):
 
 @app.route('/api/tasks', methods=['POST'])
 def create_task():
-    if not request.json():
+    if not request.json:
         abort(400)
     if len(tasks) != 0:
         id = tasks[-1]["id"] + 1
@@ -51,12 +51,12 @@ def create_task():
 
 
 @app.route('/api/tasks/', methods=['PUT'])
-def set_status(task_id):
-    pass  # set status for each task
+# def set_status(task_id):
+#    pass  # set status for each task
 
 
-def set_priority(task_id):
-    pass  # set a priority for each task
+#def set_priority(task_id):
+#    pass  # set a priority for each task
 
 
 def update_task(task_id):
@@ -82,4 +82,4 @@ def delete_task(task_id):
 
 
 if __name__ == '__main__':
-    app.run(port=1234, host="0.0.0.0")
+    app.run(port=1234)
