@@ -13,7 +13,9 @@ Documentation and presentation
 
 first step: minimum viable product (create and delete task, update, status) - FINISHED
 
-next: define a clearer set of functionalies and develop a client for this service
+second step: define a clearer set of functionalies - FINISHED
+
+next: develop a client for this service with fancy front end, security and user management
 
            
 
