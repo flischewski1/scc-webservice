@@ -54,10 +54,8 @@ def create_task():
 # def set_status(task_id):
 #    pass  # set status for each task
 
-
-#def set_priority(task_id):
+# def set_priority(task_id):
 #    pass  # set a priority for each task
-
 
 def update_task(task_id):
     task = [task for task in tasks if task["id"] == task_id]
@@ -82,4 +80,4 @@ def delete_task(task_id):
 
 
 if __name__ == '__main__':
-    app.run(port=1234)
+    app.run(port=1234, host="0.0.0.0")
