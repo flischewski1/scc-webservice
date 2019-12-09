@@ -4,17 +4,54 @@ app = Flask(__name__)
 
 tasks = [
     {
-        "id": 220,
+        "id": 122,
         "description": "Webservice entwicklen",
         "priority": "medium",
         "status": "open"
     },
     {
-        "id": 243,
-        "description": "Flask lernen",
+        "id": 123,
+        "description": "Test schreiben",
+        "priority": "urgent",
+        "status": "in progress"
+    },
+    {
+        "id": 124,
+        "description": "Sicherheitsanforderung implementieren",
+        "priority": "urgent",
+        "status": "in progress"
+    },
+    {
+        "id": 125,
+        "description": "Anfragen für Webservice entwickeln",
+        "priority": "urgent",
+        "status": "in progress"
+    },
+    {
+        "id": 126,
+        "description": "user management einbinden",
+        "priority": "urgent",
+        "status": "in progress"
+    },
+    {
+        "id": 127,
+        "description": "Flask Framework anschauen",
+        "priority": "urgent",
+        "status": "in progress"
+    },
+    {
+        "id": 128,
+        "description": "docker container bauen",
+        "priority": "urgent",
+        "status": "in progress"
+    },
+    {
+        "id": 129,
+        "description": "deployment",
         "priority": "urgent",
         "status": "in progress"
     }
+
 ]
 
 
@@ -80,4 +117,4 @@ def delete_task(task_id):
 
 
 if __name__ == '__main__':
-    app.run(port=1234, host="0.0.0.0")
+    app.run(port=1234)

@@ -1,6 +1,6 @@
 FROM python:latest
 
-ADD taskmanager.py .
+ADD app.py .
 ADD requirements.txt .
 
 WORKDIR .
