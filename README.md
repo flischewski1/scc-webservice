@@ -1,4 +1,10 @@
 # scc-webservice
+
+# Use
+
+
+
+## Task
 Implementation of a web service including client application
 
 Implementation of the learned safety concepts (at least at transport level)
@@ -11,11 +17,19 @@ Documentation and presentation
 
 ## we want to bulid a task manager with Python and Flask
 
-first step: minimum viable product (create and delete task, update, status) - FINISHED
+first: minimum viable product (create and delete task, update, status) - FINISHED
 
-second step: define a clearer set of functionalies - FINISHED
+second: define a clearer set of functionalies - FINISHED
 
-next: develop a client for this service with fancy front end, security and user management
+third: develop a client for this service with fancy front end 
+
+fourth: change the inmemory database to a relational database
+
+fifth: security and user login
+
+six: build docker containers and compose them together
+
+
 
            
 
