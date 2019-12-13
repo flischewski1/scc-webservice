@@ -9,29 +9,50 @@ Open up [http://127.0.0.1/](http://127.0.0.1/) or [http://localhost/](http://loc
 
 ## Docker compose commands
 
-```docker-compose```
+```
 
-```docker-compose images```
+docker-compose
 
 ```
+
+```
+
+docker-compose images
+
+```
+
+```
+
 Container    |        Repository          |   Tag   |   Image Id    |  Size
 -------------|----------------------------|---------|---------------|--------
 client       | scc-webservice_client      |  latest |               |   
 nginx        | scc-webservice_nginx       |  latest |               |   
 taskmanager  | scc-webservice_taskmanager |  latest |               |   
-```
-
-
-
-
-```docker-compose ps```
 
 ```
+
+
+
+
+```
+
+docker-compose ps
+
+```
+
+```
+
  Name       |      Command         | State      |     Ports
 ------------|----------------------|------------|---------------------
 client      |  uwsgi app.ini       |   Up       |
 nginx       |  nginx -g daemon off;|   Up       |
 taskmanager |  uwsgi app.ini       |   Up       |
+
+```
+```
+
+docker-compose stop
+
 ```
 
 
