@@ -1,6 +1,17 @@
 # scc-webservice
 
-# Use
+## Building and testing
+Run the following command in the same directory as docker-compose.yml to build the services:
+
+```docker-compose up --build```
+
+Open up [](http://127.0.0.1/) or [](http://localhost/)
+
+## Docker compose commands
+
+```docker-compose```
+```docker-compose images```
+```docker-compose ps```
 
 
 
