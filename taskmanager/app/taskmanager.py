@@ -77,6 +77,31 @@ def delete_task(task_id):
     return jsonify({"result": True})
 
 
+@app.route('/api/users', methods=['POST'])
+def create_user():
+    if not request.json:
+        abort(400)
+    if len(users) != 0:
+        id = users[-1]["id"] + 1
+    else:
+        id = 1
+
+    user = {
+        "id": id,
+        "username": request.json["username"],
+        "password": request.json["password"]
+    }
+    users.append(user)
+    return jsonify({"User": user})
+
+
+
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    return jsonify(users)
+
+
+
 def getMysqlConnection():
     return mysql.connector.connect(user='user', host='mysql', port='3306', password='admin', database='tasks')
 
