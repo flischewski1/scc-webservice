@@ -5,6 +5,14 @@ from flask import render_template, request, redirect
 rest_ip = "taskmanager"
 rest_port = "9033"
 
+users = [
+    {
+        "id": 1,
+        "username": "Richard",
+        "password": "1234"
+    }
+]
+
 
 @app.route('/', methods=["GET"])
 def index():
