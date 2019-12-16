@@ -5,14 +5,6 @@ from flask import render_template, request, redirect
 rest_ip = "taskmanager"
 rest_port = "9033"
 
-users = [
-    {
-        "id": 1,
-        "username": "Richard",
-        "password": "1234"
-    }
-]
-
 
 @app.route('/', methods=["GET"])
 def index():
@@ -97,20 +89,24 @@ def update_task():
 
     r = requests.put(json=payload, headers=header, url=url)
     if r.status_code != 200:
-        print("request failed with status: {}".format(r.status_code)
+        print("request failed with status: {}".format(r.status_code))
     return redirect("/")
-    
-@app.route('/register', methods=['GET'])            
+
+
+@app.route('/register', methods=['GET'])
 def register():
     return render_template('register.html')
 
+
 @app.route('/home', methods=['GET'])
 def home():
-    return render_template('base.html')  
+    return render_template('base.html')
+
 
 @app.route('/login', methods=['GET'])
 def login_page():
     return render_template('login.html')
+
 
 @app.route('/loginIn', methods=['GET', 'POST'])
 def login():
@@ -130,19 +126,20 @@ def login():
     if r.status_code != 200:
         print("request failed with status: {}".format(r.status_code))
     users = r.json()
-    
+
     user = next((user for user in users if user["username"] == username), None)
 
-    if len(user) == None:
-          return ("Please registriere dich mein Freund")
+    if len(user) is None:
+        return "Please register"
     if user["username"] == user1["username"]:
         if user["password"] == user1["password"]:
             return redirect("/")
         else:
-            return ("Falsches Passwort")
+            return "Wrong Password"
     else:
-        return ("Please registriere dich mein Freund")
-            
+        return "Please register"
+
+
 @app.route('/adduser', methods=["POST"])
 def add_user():
     username = request.form["username"]
@@ -164,6 +161,3 @@ def add_user():
         print("request failed with status: {}".format(r.status_code))
 
     return redirect("/")
-
-
-

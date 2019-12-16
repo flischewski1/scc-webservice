@@ -9,13 +9,21 @@ tasks = [
         'priority': 'low',
         'status': 'open'
     },
-{
+    {
         'id': 2,
         'description': 'train for the marathon',
         'priority': 'high',
         'status': 'in progress'
     }
 
+]
+
+users = [
+    {
+        "id": 1,
+        "username": "Richard",
+        "password": "1234"
+    }
 ]
 
 
@@ -37,12 +45,12 @@ def create_task():
     if not request.json:
         abort(400)
     if len(tasks) != 0:
-        id = tasks[-1]["id"] + 1
+        idem = tasks[-1]["id"] + 1
     else:
-        id = 1
+        idem = 1
 
     task = {
-        "id": id,
+        "id": idem,
         "description": request.json["description"],
         "priority": request.json["priority"],
         "status": request.json["status"]
@@ -82,12 +90,12 @@ def create_user():
     if not request.json:
         abort(400)
     if len(users) != 0:
-        id = users[-1]["id"] + 1
+        idem = users[-1]["id"] + 1
     else:
-        id = 1
+        idem = 1
 
     user = {
-        "id": id,
+        "id": idem,
         "username": request.json["username"],
         "password": request.json["password"]
     }
@@ -95,14 +103,10 @@ def create_user():
     return jsonify({"User": user})
 
 
-
 @app.route('/api/users', methods=['GET'])
 def get_users():
     return jsonify(users)
 
 
-
 def getMysqlConnection():
     return mysql.connector.connect(user='user', host='mysql', port='3306', password='admin', database='tasks')
-
-
