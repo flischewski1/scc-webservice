@@ -89,8 +89,73 @@ def update_task():
 
     r = requests.put(json=payload, headers=header, url=url)
     if r.status_code != 200:
+        print("request failed with status: {}".format(r.status_code)
+    return redirect("/")
+    
+@app.route('/register', methods=['GET'])            
+def register():
+    return render_template('register.html')
+
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('base.html')  
+
+@app.route('/login', methods=['GET'])
+def login_page():
+    return render_template('login.html')
+
+@app.route('/loginIn', methods=['GET', 'POST'])
+def login():
+    username = request.form["username"]
+    password = request.form["password"]
+    user1 = {
+        "username": username,
+        "password": password
+    }
+    header = {
+        "Accept-Encoding": "gzip",
+        "User-Agent": "Web-Client"
+    }
+    url = "http://{}:{}/api/users".format(rest_ip, rest_port)
+
+    r = requests.get(url=url, headers=header)
+    if r.status_code != 200:
+        print("request failed with status: {}".format(r.status_code))
+    users = r.json()
+    
+    user = next((user for user in users if user["username"] == username), None)
+
+    if len(user) == None:
+          return ("Please registriere dich mein Freund")
+    if user["username"] == user1["username"]:
+        if user["password"] == user1["password"]:
+            return redirect("/")
+        else:
+            return ("Falsches Passwort")
+    else:
+        return ("Please registriere dich mein Freund")
+            
+@app.route('/adduser', methods=["POST"])
+def add_user():
+    username = request.form["username"]
+    password = request.form["password"]
+
+    payload = {
+        "username": username,
+        "password": password
+
+    }
+    header = {
+        "Accept-Encoding": "gzip",
+        "User-Agent": "Web-Client"
+    }
+    url = "http://{}:{}/api/users".format(rest_ip, rest_port)
+
+    r = requests.post(json=payload, headers=header, url=url)
+    if r.status_code != 200:
         print("request failed with status: {}".format(r.status_code))
 
     return redirect("/")
+
 
 
