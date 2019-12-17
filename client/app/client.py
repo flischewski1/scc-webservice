@@ -6,7 +6,7 @@ rest_ip = "taskmanager"
 rest_port = "9033"
 
 
-@app.route('/', methods=["GET"])
+@app.route('/index', methods=["GET"])
 def index():
     header = {
         "Accept-Encoding": "gzip",
@@ -44,7 +44,7 @@ def add_task():
     if r.status_code != 200:
         print("request failed with status: {}".format(r.status_code))
 
-    return redirect("/")
+    return redirect("/index")
 
 
 @app.route('/delete', methods=["POST"])
@@ -61,7 +61,7 @@ def delete_task():
     if r.status_code != 200:
         print("request failed with status: {}".format(r.status_code))
 
-    return redirect("/")
+    return redirect("/index")
 
 
 @app.route('/update', methods=["POST"])
@@ -90,7 +90,7 @@ def update_task():
     r = requests.put(json=payload, headers=header, url=url)
     if r.status_code != 200:
         print("request failed with status: {}".format(r.status_code))
-    return redirect("/")
+    return redirect("/index")
 
 
 @app.route('/register', methods=['GET'])
@@ -98,7 +98,7 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/home', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return render_template('base.html')
 
@@ -133,7 +133,7 @@ def login():
         return "Please register"
     if user["username"] == user1["username"]:
         if user["password"] == user1["password"]:
-            return redirect("/")
+            return redirect("/index")
         else:
             return "Wrong Password"
     else:
@@ -160,4 +160,4 @@ def add_user():
     if r.status_code != 200:
         print("request failed with status: {}".format(r.status_code))
 
-    return redirect("/")
+    return redirect("/index")
