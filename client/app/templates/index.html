@@ -79,10 +79,40 @@
                 {% for task in tasks.values() %}
                     {% for i in task %}
                         <tr>
-                            <td>{{ i['id'] }}</td>
+                           <th>Description</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th> 
+                </tr>
+                </thead>
+                <tbody>
+                {% for task in tasks.values() %}
+                    {% for i in task %}
+                        <tr>
                             <td>{{ i['description'] }}</td>
                             <td>{{ i['priority'] }}</td>
                             <td>{{ i['status'] }}</td>
+                            <td><form action="{{ url_for('update_task') }}" method="post">
+                                    <input type="hidden" class="form-control" id="id" name="id" placeholder="ID" value={{ i['id'] }} required>
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control" id="priority" name="priority" placeholder="Priority">
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control" id="status" name="status" placeholder="Status">
+                            </td>
+                            <td>
+                                    <button type="submit" class="btn btn-success">Update</button>
+                            </form>
+                        </td>
+                        <td><form action="{{ url_for('delete_task') }}" method="post">
+                            <input type="hidden" class="form-control" id="id" name="id" placeholder="ID" value= {{ i['id'] }} required>
+                            <button type="submit" class="btn btn-success">Delete</button>
+                        </form>
+                        </td>
                         </tr>
                     {% endfor %}
                 {% endfor %}
