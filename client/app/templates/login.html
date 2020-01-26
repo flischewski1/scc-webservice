@@ -18,11 +18,14 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div>
-                <h1>TASKMANAGER:</h1>
-                <a href="/register">Register</a>
-                <a href="/login">Login</a>
+                <h1>TASKMANAGER</h1>
+                <hr>
+                <div class="col-2-sm">
+                    <h2 >Sign In </h2>
+                </div>
+                
 
-            <h1> Sign In </h1>
+        
             <div>
                   <div class="col-2-sm">
                 <form action="{{ url_for('login') }}" method="post">
@@ -50,6 +53,7 @@
                     </table>
                     </div>
                     <button type="submit" class="btn btn-success">Sign In</button>
+                    <a href="/register">Don't got an account?</a>
                 </form>
             </div>
             </div>
